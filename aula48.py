@@ -38,3 +38,13 @@ lista.insert(0, 'Wellison Cavalcante')
 lista = [10, 20, 30, 40]
 # [10, 20, 30, 40, 5] -> Se não existir o índice 100, ele joga para o último elemento da lista.
 lista.insert(100, 5)
+
+
+lista_a = [1, 2, 3]
+lista_b = [4, 5, 6]
+
+lista_c = lista_a + lista_b  # [1, 2, 3, 4, 5, 6]
+
+lista_d = lista_a.extend(lista_b)  # None
+
+lista_a.extend(lista_b)  # [1, 2, 3, 4, 5, 6]
