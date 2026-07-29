@@ -3,6 +3,11 @@
 
 # print(list(range(10)))
 
+import pprint
+
+def p(v):
+    pprint.pprint(v, sort_dicts=False, width=40)
+
 lista = []
 
 for numero in range(10):
@@ -25,4 +30,14 @@ novos_produtos = [
     if produto['preço'] > 20 else {**produto} # Aumento de 30% se o preço for maior que 20
     for produto in produtos
 ]
-print(*novos_produtos, sep='\n')
+# print(*novos_produtos, sep='\n')
+# p(novos_produtos)
+# lista = [n for n in range(10) if n < 5]
+
+novos_produtos = [
+    {**produto, 'preço': round(produto['preço'] * 1.30, 2)}
+    if produto['preço'] > 20 else {**produto} # Aumento de 30% se o preço for maior que 20
+    for produto in produtos
+    if (produto['preço'] > 20 and produto['preço'] * 1.05) > 10
+]
+p(novos_produtos)
