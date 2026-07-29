@@ -10,4 +10,19 @@ for numero in range(10):
 # print(lista)
 
 lista = [numero * 4 for numero in range(10)]
-print(lista)
+# print(lista)
+
+# Mapeamento de dados em list comprehension
+produtos = [
+    {'nome': 'produto_1', 'preço': 19.99},
+    {'nome': 'produto_2', 'preço': 24.99},
+    {'nome': 'produto_3', 'preço': 5.35},
+    {'nome': 'produto_4', 'preço': 6.92},
+]
+
+novos_produtos = [
+    {**produto, 'preço': round(produto['preço'] * 1.30, 2)}
+    if produto['preço'] > 20 else {**produto} # Aumento de 30% se o preço for maior que 20
+    for produto in produtos
+]
+print(*novos_produtos, sep='\n')
