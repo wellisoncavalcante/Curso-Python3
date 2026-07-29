@@ -14,7 +14,7 @@ letras_acertadas = ''
 numero_tentativas = 0
 
 while True:
-    os.system('cls')
+    # os.system('cls')
     teste_letra = input('Digite uma letra: ')
     numero_tentativas += 1
     
@@ -35,7 +35,7 @@ while True:
     print('Palavra formada: ', palavra_formada)
     
     if palavra_formada == palavra_secreta:
-        os.system('cls')
+        # os.system('cls')
         print('Você ganhou! Parabéns')
         print('A palavra era', palavra_formada)
         print('Tentativas: ', numero_tentativas)
