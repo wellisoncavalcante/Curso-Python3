@@ -3,7 +3,11 @@ __all__ = [
     'soma_do_modulo'
 ]
 
+from aula100_package.modulo_b import fala_oi
+
 variavel = 'Something'
 
 def soma_do_modulo(x, y):
     return x + y
+
+fala_oi()
