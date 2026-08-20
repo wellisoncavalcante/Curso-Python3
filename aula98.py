@@ -5,12 +5,8 @@
 # Ele não reconhece pastas e módulos acima do __main__ por padrão
 # O python conhece todos os módulos e pacotes presentes nos caminhos
 # de sys.path
-try:
-    import sys
-    sys.path.append('/home')
-except ModuleNotFoundError:
-    ...
-import aula98_m
+from aula98_m import variavel_modulo, soma
 
 print('Este módulo se chama', __name__)
-print(*sys.path, sep='\n')
+print(variavel_modulo)
+print(soma(2,4))
