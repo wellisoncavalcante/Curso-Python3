@@ -1,47 +1,43 @@
-# Exercícios
 import copy
-from pprint import pprint
-
-def separador():
-    print('='*100)
-
-produtos = [
-    {'nome': 'Produto 5', 'preco': 10.00},
-    {'nome': 'Produto 1', 'preco': 22.32},
-    {'nome': 'Produto 3', 'preco': 10.11},
-    {'nome': 'Produto 2', 'preco': 105.87},
-    {'nome': 'Produto 4', 'preco': 69.90},
-]
+from dados import produtos
 
 
+# copy, sorted, produtos.sort
+# Exercícios
+# Aumente os preços dos produtos a seguir em 10%
 # Gere novos_produtos por deep copy (cópia profunda)
-novos_produtos = copy.deepcopy(produtos)
 
-# Aumente os preços dos produtos a seguir em 10 %
-for i in novos_produtos:
-    i['preco'] = round(i['preco'] * 1.1, 2)
-pprint(novos_produtos)
-separador()
+novos_produtos = [
+    {**p, 'preco': round(p['preco'] * 1.1, 2)}
+    for p in copy.deepcopy(produtos)
+] 
 
+# print(*produtos, sep='\n')
+
+# print()
+
+# print(*novos_produtos, sep='\n')
+
+# Ordene os produtos por nome decrescente (do maior para o menor)
 # Gere produtos_ordenados_por_nome por deep copy (cópia profunda)
-produtos_ordenados_por_nome = copy.deepcopy(produtos)
-produtos_ordenados_por_nome.sort(key=lambda produto: produto['nome'])
-pprint(produtos_ordenados_por_nome)
-separador()
 
-# Ordene os produtos por nome decrescente
-produtos_ordenados_por_nome_decrescente = copy.deepcopy(produtos)
-produtos_ordenados_por_nome_decrescente.sort(key=lambda produto: produto['nome'], reverse=True)
-pprint(produtos_ordenados_por_nome_decrescente)
-separador()
+produtos_ordenados_por_nome = sorted(
+    copy.deepcopy(produtos),
+    key=lambda p: p['nome']
+)
 
+# print(*produtos, sep='\n')
+# print()
+# print(*produtos_ordenados_por_nome, sep='\n')
+
+# Ordene os produtos por preco crescente (do menor para o maior)
 # Gere produtos_ordenados_por_preco por deep copy (cópia profunda)
-produtos_ordenados_por_preco = copy.deepcopy(produtos)
 
-# Ordene os produtos por preço crescente
-produtos_ordenados_por_preco.sort(key=lambda produto: produto['preco'])
-pprint(produtos_ordenados_por_preco)
-separador()
+produtos_ordenados_por_preco = sorted(
+    copy.deepcopy(produtos),
+    key=lambda p: p['preco']
+)
 
-# Lista original continua intacta
-pprint(produtos)
+print(*produtos, sep='\n')
+print()
+print(*produtos_ordenados_por_preco, sep='\n')
