@@ -22,6 +22,14 @@ caminho_arquivo = 'aula117.txt'
 # arquivo = open(caminho_arquivo, 'w')
 # #
 # arquivo.close()
-with open(caminho_arquivo, 'w') as arquivo:
-    print('Olá, mundo!')
-    print('O arquivo vai ser fechado automaticamente após o bloco with')
+
+with open(caminho_arquivo, 'w+') as arquivo:
+    arquivo.write('Linha 1\n')
+    arquivo.write('Linha 2\n')
+    arquivo.seek(0, 0) # Move o cursor para o início do arquivo
+    print(arquivo.read())
+
+print("#" * 40)
+
+with open(caminho_arquivo, 'r') as arquivo:
+    print(arquivo.read()) # Lê todo o arquivo
